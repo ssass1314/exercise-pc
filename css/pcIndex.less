@@ -1,0 +1,261 @@
+/*cssreset*/
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+html, body, h1, h2, h3, h4, h5, h6, p, ul, li {
+  margin: 0px;
+  padding: 0px;
+  font: 14px "微软雅黑";
+}
+
+a {
+  text-decoration: none;
+  display: block;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  display: block;
+}
+
+/*清除浮动*/
+.clearfix {
+  *zoom: 1;
+}
+
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+#wrap {
+  width: 100%;
+  #header {
+    position: relative;
+    height: 80px;
+    width: 100%;
+    background: red;
+    .headerMain {
+
+      width: 1100px;
+      height: 80px;
+      background: gold;
+      margin: 0 auto;
+      .logo {
+        float: left;
+        margin-top: 15px;
+      }
+      .nav {
+        position: relative;
+        float: right;
+        margin-top: 50px;
+        .navList {
+
+          li {
+            position: relative;
+            float: left;
+            margin-left: 40px;
+            overflow: hidden;
+
+            a {
+              .up{
+
+                transition: 1s width;
+
+                  position: absolute;
+                  top:0;
+                  left: 0;
+                  overflow: hidden;
+                  color: black;
+                  top: 0;
+                  left: 0;
+                  width:0;
+
+                &:nth-child(2){
+                  color: #009EE0;
+                }
+              }
+             }
+            &:hover .up {
+              width:100%;
+            }
+          }
+
+
+        }
+
+      }
+      .arrow{
+        position: absolute;
+        bottom: -11px;
+        left: 50%;
+
+        right: 50%;
+        transform: translateX(-50%);
+        width: 21px;
+        height: 11px;
+        background-image: url(../img/arrow.png);
+        background-repeat:no-repeat;
+        z-index: 4;
+        transition: 1s;
+      }
+    }
+  }
+
+
+  //主内容区
+  #content{
+    position: relative;
+    background: gray;
+    width:100%;
+    overflow: hidden;
+    .conList{
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      .conMain{
+        position: relative;
+
+        width:100%;
+        &:nth-child(1){
+          background-image: url('../img/bg1.jpg');
+        }
+        &:nth-child(2){
+          background-image: url('../img/bg2.jpg');
+        }
+        &:nth-child(3){
+          background-image: url('../img/bg3.jpg');
+        }
+        &:nth-child(4){
+          background-image: url('../img/bg4.jpg');
+        }
+        &:nth-child(5){
+          background-image: url('../img/bg5.jpg');
+        }
+        &>div{
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0px;
+          margin:auto;
+          width: 1100px;
+          height: 520px;
+          background: yellow;
+          //第一屏样式
+          &.home{
+            .homeList{
+              position: relative;
+              width: 1100px;
+              height: 520px;
+
+              transform-style: preserve-3d;
+              perspective: 1000px;
+              .homeItem{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 1100px;
+                height: 520px;
+                visibility: hidden;
+
+
+
+                //动画效果
+                &.leftHide{
+                  animation: leftH 2s linear;
+                  visibility: hidden;
+                }
+                &.rightShow{
+                  animation: rightS 2s linear;
+                  visibility: visible;
+                }
+
+                &.leftShow{
+                  animation: leftS 2s linear;
+                  visibility: visible;
+                }
+                &.rightHide{
+                  animation: rightH 2s linear;
+                  visibility: hidden;
+                }
+
+
+
+                &.active{
+                  visibility: visible;
+                }
+                &>div{
+                  text-align: center;
+                  line-height: 520px;
+                  color: white;
+                }
+                &:nth-child(1){
+                  background:#dc6c5f;
+                }
+                &:nth-child(2){
+                  background:#95dc84;
+                }
+                &:nth-child(3){
+                  background:#64b9d2;
+                }
+                &:nth-child(4){
+                  background:#000000;
+                }
+
+              }
+            }
+           //小圆点
+            .homeNav{
+              position: absolute;
+              left: 50%;
+              transform: translateX(-50%);
+              bottom: 0;
+              .homeIcon{
+                float: left;
+                width: 20px;
+                height: 20px;
+                background-color: rgba(255,255,255,0.5);
+                margin: 2px;
+                box-shadow:0 0 4px rgba(25,25,25,0.8);
+                border-radius: 50%;
+                &.active{
+                  background-color: white;
+                }
+              }
+            }
+
+          }
+        }
+      }
+    }
+  }
+}
+@keyframes leftH {
+   0%{visibility: visible}
+   50%{transform: translateX(-40%) rotateY(30deg) scale(0.8)}
+   100%{transform:translateZ(-200px)}
+ }
+@keyframes rightS {
+  0%{visibility: hidden; transform:translateZ(-200px)}
+  50%{transform: translateX(40%) rotateY(-30deg) scale(0.8)}
+  100%{}
+}
+
+@keyframes leftS {
+  0%{visibility: hidden;transform:translateZ(-200px)}
+  50%{transform: translateX(-40%) rotateY(30deg) scale(0.8)}
+  100%{}
+}
+@keyframes rightH {
+  0%{visibility: visible }
+  50%{transform: translateX(40%) rotateY(-30deg) scale(0.8)}
+  100%{transform:translateZ(-200px)}
+}

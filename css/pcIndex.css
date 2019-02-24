@@ -1,0 +1,249 @@
+/*cssreset*/
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li {
+  margin: 0px;
+  padding: 0px;
+  font: 14px "微软雅黑";
+}
+a {
+  text-decoration: none;
+  display: block;
+}
+li {
+  list-style: none;
+}
+img {
+  display: block;
+}
+/*清除浮动*/
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+#wrap {
+  width: 100%;
+}
+#wrap #header {
+  position: relative;
+  height: 80px;
+  width: 100%;
+  background: red;
+}
+#wrap #header .headerMain {
+  width: 1100px;
+  height: 80px;
+  background: gold;
+  margin: 0 auto;
+}
+#wrap #header .headerMain .logo {
+  float: left;
+  margin-top: 15px;
+}
+#wrap #header .headerMain .nav {
+  position: relative;
+  float: right;
+  margin-top: 50px;
+}
+#wrap #header .headerMain .nav .navList li {
+  position: relative;
+  float: left;
+  margin-left: 40px;
+  overflow: hidden;
+}
+#wrap #header .headerMain .nav .navList li a .up {
+  transition: 1s width;
+  position: absolute;
+  overflow: hidden;
+  color: black;
+  top: 0;
+  left: 0;
+  width: 0;
+}
+#wrap #header .headerMain .nav .navList li a .up:nth-child(2) {
+  color: #009EE0;
+}
+#wrap #header .headerMain .nav .navList li:hover .up {
+  width: 100%;
+}
+#wrap #header .headerMain .arrow {
+  position: absolute;
+  bottom: -11px;
+  left: 50%;
+  right: 50%;
+  transform: translateX(-50%);
+  width: 21px;
+  height: 11px;
+  background-image: url(../img/arrow.png);
+  background-repeat: no-repeat;
+  z-index: 4;
+  transition: 1s;
+}
+#wrap #content {
+  position: relative;
+  background: gray;
+  width: 100%;
+  overflow: hidden;
+}
+#wrap #content .conList {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+#wrap #content .conList .conMain {
+  position: relative;
+  width: 100%;
+}
+#wrap #content .conList .conMain:nth-child(1) {
+  background-image: url('../img/bg1.jpg');
+}
+#wrap #content .conList .conMain:nth-child(2) {
+  background-image: url('../img/bg2.jpg');
+}
+#wrap #content .conList .conMain:nth-child(3) {
+  background-image: url('../img/bg3.jpg');
+}
+#wrap #content .conList .conMain:nth-child(4) {
+  background-image: url('../img/bg4.jpg');
+}
+#wrap #content .conList .conMain:nth-child(5) {
+  background-image: url('../img/bg5.jpg');
+}
+#wrap #content .conList .conMain > div {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0px;
+  margin: auto;
+  width: 1100px;
+  height: 520px;
+  background: yellow;
+}
+#wrap #content .conList .conMain > div.home .homeList {
+  position: relative;
+  width: 1100px;
+  height: 520px;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+#wrap #content .conList .conMain > div.home .homeList .homeItem {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1100px;
+  height: 520px;
+  visibility: hidden;
+}
+#wrap #content .conList .conMain > div.home .homeList .homeItem.leftHide {
+  animation: leftH 2s linear;
+  visibility: hidden;
+}
+#wrap #content .conList .conMain > div.home .homeList .homeItem.rightShow {
+  animation: rightS 2s linear;
+  visibility: visible;
+}
+#wrap #content .conList .conMain > div.home .homeList .homeItem.leftShow {
+  animation: leftS 2s linear;
+  visibility: visible;
+}
+#wrap #content .conList .conMain > div.home .homeList .homeItem.rightHide {
+  animation: rightH 2s linear;
+  visibility: hidden;
+}
+#wrap #content .conList .conMain > div.home .homeList .homeItem.active {
+  visibility: visible;
+}
+#wrap #content .conList .conMain > div.home .homeList .homeItem > div {
+  text-align: center;
+  line-height: 520px;
+  color: white;
+}
+#wrap #content .conList .conMain > div.home .homeList .homeItem:nth-child(1) {
+  background: #dc6c5f;
+}
+#wrap #content .conList .conMain > div.home .homeList .homeItem:nth-child(2) {
+  background: #95dc84;
+}
+#wrap #content .conList .conMain > div.home .homeList .homeItem:nth-child(3) {
+  background: #64b9d2;
+}
+#wrap #content .conList .conMain > div.home .homeList .homeItem:nth-child(4) {
+  background: #000000;
+}
+#wrap #content .conList .conMain > div.home .homeNav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+}
+#wrap #content .conList .conMain > div.home .homeNav .homeIcon {
+  float: left;
+  width: 20px;
+  height: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin: 2px;
+  box-shadow: 0 0 4px rgba(25, 25, 25, 0.8);
+  border-radius: 50%;
+}
+#wrap #content .conList .conMain > div.home .homeNav .homeIcon.active {
+  background-color: white;
+}
+@keyframes leftH {
+  0% {
+    visibility: visible;
+  }
+  50% {
+    transform: translateX(-40%) rotateY(30deg) scale(0.8);
+  }
+  100% {
+    transform: translateZ(-200px);
+  }
+}
+@keyframes rightS {
+  0% {
+    visibility: hidden;
+    transform: translateZ(-200px);
+  }
+  50% {
+    transform: translateX(40%) rotateY(-30deg) scale(0.8);
+  }
+}
+@keyframes leftS {
+  0% {
+    visibility: hidden;
+    transform: translateZ(-200px);
+  }
+  50% {
+    transform: translateX(-40%) rotateY(30deg) scale(0.8);
+  }
+}
+@keyframes rightH {
+  0% {
+    visibility: visible;
+  }
+  50% {
+    transform: translateX(40%) rotateY(-30deg) scale(0.8);
+  }
+  100% {
+    transform: translateZ(-200px);
+  }
+}
